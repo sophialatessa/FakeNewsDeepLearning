@@ -56,6 +56,7 @@ def load_data_and_labels(positive_data_file, negative_data_file):
         positive_examples=[]
     if negative_data_file!='':
         negative_examples = pickle.load(open(negative_data_file, "rb"))
+        #negative_examples =(open(negative_data_file, "r",errors='ignore').readlines())
         negative_examples = [s.strip() for s in negative_examples]
     else:
         negative_examples = []

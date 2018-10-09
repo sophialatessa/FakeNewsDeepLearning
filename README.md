@@ -1,7 +1,7 @@
 Instructions indicated for PyEnchant (Python) with Tensorflow
 
 Files + Cleaning:
-    1. Download + unzip GoogleNews-vectors-negative300.bin.gz
+    1. Download and ungzip GoogleNews-vectors-negative300.bin.gz
         (I downloaded from: https://github.com/mmihaltz/word2vec-GoogleNews-vectors)
 
     2. Run pattern removal script, 'pattern_removal.py'

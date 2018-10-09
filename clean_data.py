@@ -860,8 +860,11 @@ for ff in ['real', 'fake']:
 
     processed_text = list(open(txt_path + 'processed/' + ff + '.txt', "r", encoding="utf-8").readlines())[::2]
 
-    if '\n' in processed_text:
+    while '\n' in processed_text:
         processed_text.remove('\n')
+
+    while '\n' in processed_text:
+        processed_text.remove('')
 
     def clean_article(article):
         for rgx_match in rgx_list:
@@ -875,8 +878,11 @@ for ff in ['real', 'fake']:
 
     new_text = [clean_article(article) for article in processed_text]
 
-    if '\n' in new_text:
-        new_text.remove('\n')
+    while '\n' in processed_text:
+        processed_text.remove('\n')
+
+    while '\n' in processed_text:
+        processed_text.remove('')
 
     print(len(new_text))
 

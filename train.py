@@ -49,7 +49,7 @@ for attr, value in sorted(FLAGS.__flags.items()):
 print("")
 
 cfg = {'word_embeddings': {'default': 'word2vec', 'word2vec':
-    {'path': '/Users/sofia/Documents/src/fakenews1/GoogleNews-vectors-negative300.bin',
+    {'path': os.getcwd() +'/GoogleNews-vectors-negative300.bin',
      'dimension': 300, 'binary': True}, 'glove': {'path': '../../data/glove.6B.100d.txt', 'dimension': 100, 'length': 400000}},
      'datasets': {'default': '20newsgroup', 'mrpolarity': {'positive_data_file': {'path': 'data/rt-polaritydata/rt-polarity.pos',
                                                                                   'info': 'Data source for the positive data'},
@@ -82,8 +82,12 @@ def clean(text):
     return text
 
 # Build vocabulary
-x_text, y = data_helpers.load_data_and_labels(positive_data_file, negative_data_file)
-x_text=[" ".join(clean(x).split(" ")[:1000]) for x in x_text]
+x_origin, y = data_helpers.load_data_and_labels(positive_data_file, negative_data_file)
+
+x_origin = x_origin[:1000]
+y = y[:1000]
+
+x_text = [" ".join(clean(x).split(" ")[:1000]) for x in x_origin]
 
 max_document_length = max([len(x.split(" ")) for x in x_text])
 print(max_document_length, "is mdl (max document length).")
@@ -99,16 +103,19 @@ if FLAGS.experiment == 'all':
     x_shuffled = x[shuffle_indices]
     y_shuffled = y[shuffle_indices]
 
-    with open(txt_path + 'clean/shuffle.pkl', 'wb') as fp:
+    with open(txt_path + '/data/clean/shuffle.pkl', 'wb') as fp:
         pickle.dump(shuffle_indices, fp)
 
     #4000 testing articles
     x_shuffled = x_shuffled[:-4000]
     y_shuffled = y_shuffled[:-4000]
 
-#elif FLAGS.experiment == 'Trump':
+elif FLAGS.experiment == 'Trump':
+    idx_trump = [idx for idx, article in enumerate(x_origin) if ('trump' in article) or ('Trump' in article) or ('TRUMP' in article)]
 
-#elif FLAGS.experiment == 'email':
+elif FLAGS.experiment == 'email':
+    idx_trump = [idx for idx, article in enumerate(x_origin) if ('email' in article) or ('Email' in article) or ('EMAIL' in article)]
+
 
 # Split train/test set
 dev_sample_index = -1 * int(FLAGS.dev_sample_percentage * float(len(y)))
