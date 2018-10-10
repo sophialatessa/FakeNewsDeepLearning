@@ -1,4 +1,6 @@
-0. Pre-requisites: Tensorflow, Python3
+# Running the code from scratch
+
+0. Pre-requisites: Python3 + packages: nltk, numpy, sklearn, Tensorflow (tested in version 1.12.0rc0)
 
 1. Download and ungzip GoogleNews-vectors-negative300.bin.gz. Save the uncompressed GoogleNews-vectors-negative300.bin in the root directory of the repository (same directory as train.py). You can get the file here:
 
@@ -14,30 +16,22 @@
  
     `python train.py --experiment=Trump`
 
-     Once train.py is finished, a directory in 'run' has been created, which cointains the network parameters.
+     Stop the training when the validation accuracy does not increase anymore. The validation accuracy is displayed every 100 training steps. A directory in 'run' that cointains the network parameters is created.
 
 4. Test the Neural Network eval.py
 
     ```python eval.py --experiment=Trump```
 
-Seperate Words by Part of Speech:
-    - run 'before_pos.py' (make sure to change directory, cur_dir = "trump_final1/" --> cur_dir = "YOUR_DIRECTORY/"
-    - run 'parts_of_speech.py' (make sure to change directory, directory = "trump_final1/" --> directory = "YOUR_DIRECTORY/"
+5. Get the most relevant patterns for each article:
 
-Acronym & Abbreviations:
-rb = real bodies
-fb = fake bodies
-fb_train = all fake bodies training dataset
-fb_test = all fake bodies testing dataset
-rb_train = all real bodies training dataset
-rb_test = all real bodies testing dataset
-
-File Explanations:
-Within directory folder, there are several files.
-    false_neg.txt - article is 'real', classified as 'fake'
-    false_pos.txt - article is 'fake', classified as 'real'
-    true_neg.txt - article is 'fake', classified as 'fake'
-    true_pos.txt - article is 'real', classified as 'real'
+     ```python get_patterns.py --experiment=Trump```
+     
+6. Display the most relevant patters accross all the dataset by parts of speech:
+    
+    ```python parts_of_speech.py --experiment=Trump```
+    
+    
+# Dataset
 
 * Data's directory holds all fake bodies and real bodies text files. It also holds 'news-data`.*
   Within 'news-data', holds `trump` text files and `email` text files:
