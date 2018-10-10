@@ -1,6 +1,6 @@
 # Running the code from scratch
 
-0. Pre-requisites: Tensorflow (tested in version 1.12.0rc0), Python3
+0. Pre-requisites: Python3 + packages: nltk, numpy, sklearn, Tensorflow (tested in version 1.12.0rc0)
 
 1. Download and ungzip GoogleNews-vectors-negative300.bin.gz. Save the uncompressed GoogleNews-vectors-negative300.bin in the root directory of the repository (same directory as train.py). You can get the file here:
 
