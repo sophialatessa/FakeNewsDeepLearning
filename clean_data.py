@@ -871,6 +871,13 @@ rgx_list = ['Read More',
             'click here', 'interactive community weekly good to meet',
             'to get more info',
             'leave the name field empty',
+            ' cc ',
+            ' fl ',
+            ' ing ',
+            ' iii ',
+            ' ii ',
+            ' la ',
+            ' icle ', ' rd ', ' op ', ' rep ', ' youre', ' vol ',
             'if you want to post as anonymous its preferable that you choose a name so it becomes clear who said what address is not mandatory either the website automatically checks for please refer to our moderation policies for more details we check to make sure that no comment is mistakenly marked as this takes time and so please be patient until your comment appears thanks replies to a comment are the maximum here are formating examples which you can use in your results in bold text results in italic text can also combine two formating tags with each for example to get results in emphasized text results in strong text quote results in a quote text marks are added phrase or a block of text that needs to be results a phrase or a block of text that needs to be cited heavier version of quoting a block of results a heavier version of quoting a block of text that can span several lines use these possibilities appropriately they are meant to help you create and follow the discussions in a better way they can assist in grasping the content value of a comment more quickly and last but not of your results in name of your no need to use this special character in between you do not need it anymore just write as you like and your paragraphs will be separated the appears automatically when you start typing below the text area and it will show you how your comment will look like before you send it if you now think that this is too confusing then just ignore the code above and write as you like'
             ]
 

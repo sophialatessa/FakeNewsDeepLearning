@@ -121,18 +121,6 @@ elif FLAGS.experiment == 'Trump':
     y_shuffled = y[shuffle_indices]
 
 
-elif FLAGS.experiment == 'war':
-    idx_email= [idx for idx, article in enumerate(x_origin) if (' war ' not in article) and (' War ' not in article) and (' WAR ' not in article)]
-    x = x[idx_email]
-    y = y[idx_email]
-
-    # Randomly shuffle data
-    np.random.seed(10)
-    shuffle_indices = np.random.permutation(np.arange(len(y)))
-    x_shuffled = x[shuffle_indices]
-    y_shuffled = y[shuffle_indices]
-
-
 # Split train/test set
 dev_sample_index = -1 * int(FLAGS.dev_sample_percentage * float(len(y)))
 x_train, x_dev = x_shuffled[:dev_sample_index], x_shuffled[dev_sample_index:]

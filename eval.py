@@ -140,12 +140,6 @@ elif FLAGS.experiment == 'Trump':
     x_raw = np.array(x_raw)
     x_raw = x_raw[idx_trump]
 
-elif FLAGS.experiment == 'war':
-    idx_email = [idx for idx, article in enumerate(x_origin) if (' war ' in article) or (' War ' in article) or (' WAR '  in article)]
-    x_test = x_test[idx_email]
-    y_test = y_test[idx_email]
-    x_raw = np.array(x_raw)
-    x_raw = x_raw[idx_email]
 
 print("\nEvaluating...\n")
 # Evaluation

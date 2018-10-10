@@ -62,7 +62,7 @@ y=['real' for real in real_titles]+['fake' for fake in fake_titles]
 
 x=np.array(x)
 y=np.array(y)
-dev_sample_percentage=0.1
+dev_sample_percentage=1
 np.random.seed(10)
 shuffle_indices = np.random.permutation(np.arange(len(y)))
 x_shuffled = x[shuffle_indices]
