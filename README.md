@@ -1,4 +1,4 @@
-Pre-requisites: Tensorflow, Python3
+0. Pre-requisites: Tensorflow, Python3
 
 1. Download and ungzip GoogleNews-vectors-negative300.bin.gz from:
 
