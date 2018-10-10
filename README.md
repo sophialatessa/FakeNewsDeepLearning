@@ -16,7 +16,7 @@
  
     `python train.py --experiment=Trump`
 
-     Once train.py is finished, a directory in 'run' has been created, which cointains the network parameters.
+     Stop the training when the validation accuracy does not increase anymore. The validation accuracy is displayed every 100 training steps. A directory in 'run' that cointains the network parameters is created.
 
 4. Test the Neural Network eval.py
 
