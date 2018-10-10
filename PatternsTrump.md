@@ -3,7 +3,7 @@
 aboriginal, angry, annual, artistic, available, broad, chaotic, common, difficult, disappointing, eager, earlier, eighth, enthusiastic, fewer, fierce, formal, gay, grateful, greater, green, guilty, huge, keen, lame, lovely, metropolitan, minimum, mum, musical, narrow, nationalist, open, optimistic, painful, past, popular, practical, racial, radical, rival, royal, rural, seductive, seventh, sharp, small, soft, sombre, stylish, supreme, theatrical, unfair, vocal, welcome, wider, wild, worst
 
 ## Fake
-able, actual, ballistic, bipartisan, certain, correct, covert, criminal, dead, deep, deplorable, disturbing, divine, eastern, evil, false, fascist, favorite, general, godless, greatest, ill, important, independent, inflammatory, internal, investigative, largest, latest, least, libertarian, lunatic, main, moderate, multiple, natural, numerous, passionate, pathological, patriotic, phony, possible, powerful, precious, secret, secular, southern, special, standard, sure, totalitarian, violent, warmongering, worse, worth’
+able, actual, ballistic, bipartisan, certain, correct, covert, criminal, dead, deep, deplorable, disturbing, divine, eastern, evil, false, fascist, favorite, general, godless, greatest, ill, important, independent, inflammatory, internal, investigative, largest, latest, least, libertarian, lunatic, main, moderate, multiple, natural, numerous, passionate, pathological, patriotic, phony, possible, powerful, precious, secret, secular, southern, special, standard, sure, totalitarian, violent, warmongering, worse, worth
 
 # Verb
 ## Real
