@@ -388,8 +388,8 @@ rgx_list = ['Read More',
             'Store 6 ',
             'Store  ',
             'RELATED',
-            'pm ',
-            'am ',
+            ' pm ',
+            ' am ',
             'VIDEO',
             'to share and republish our breaking news and videos ',
             'post Now View Full Text of Job Postings appeared  .',
@@ -851,7 +851,28 @@ rgx_list = ['Read More',
             ' on on',
             'to read more pieces like this',
             'like us',
-            'keep up with the latest']
+            'keep up with the latest',
+            ' on ',
+            ' By ',
+            ' Shes ', ' shes ', ' Hes ', ' hes ', ' Dont ', ' dont ', ' Doesnt ', ' doesnt ', ' isnt ', ' arent ',
+            'PA COME OUT FOR TRUMP PA GOD BLESS', ' BREAK G BUS ESS',
+            'WHY CANT PRODUCE ANYTH G CLOSE TO A W N G COMMENT VOTERS', ' te ', ' whos ', ' didnt ', ' theyve '
+            ' click here', ' for more information',
+            ' forget to like freedom outpost plus you can also get freedom outpost delivered to your amazon kindle device here',
+            ' late click here for more information',
+            ' view other inspiring articles',
+            ' th ', ' ck ', ' cant ', ' twitter ', '  ny ',
+            ' the topics i like and follow me at and connect',
+            ' rug union', 'new topics',
+            'the original source of this article is', ' login whats hot', ' can contact him email at',
+            'specializes in coverage', 'subscribe on', 'this article at', 'join the conversation', 'story click for more article'
+            'for more article', 'what are your thoughts', 'comment section below', 'send us an email',
+            'following two tabs change content below', 'latest posts',
+            'click here', 'interactive community weekly good to meet',
+            'to get more info',
+            'leave the name field empty',
+            'if you want to post as anonymous its preferable that you choose a name so it becomes clear who said what address is not mandatory either the website automatically checks for please refer to our moderation policies for more details we check to make sure that no comment is mistakenly marked as this takes time and so please be patient until your comment appears thanks replies to a comment are the maximum here are formating examples which you can use in your results in bold text results in italic text can also combine two formating tags with each for example to get results in emphasized text results in strong text quote results in a quote text marks are added phrase or a block of text that needs to be results a phrase or a block of text that needs to be cited heavier version of quoting a block of results a heavier version of quoting a block of text that can span several lines use these possibilities appropriately they are meant to help you create and follow the discussions in a better way they can assist in grasping the content value of a comment more quickly and last but not of your results in name of your no need to use this special character in between you do not need it anymore just write as you like and your paragraphs will be separated the appears automatically when you start typing below the text area and it will show you how your comment will look like before you send it if you now think that this is too confusing then just ignore the code above and write as you like'
+            ]
 
 txt_path = os.getcwd() + '/data/'
 
@@ -868,23 +889,43 @@ for ff in ['real', 'fake']:
 
     def clean_article(article):
         for rgx_match in rgx_list:
-            article = article.replace(rgx_match, "") #= re.sub(rgx_match, ' ', article)
+            article = article.replace(rgx_match, " ")
         article = re.sub(r'\([^)]*\)', '', article)
         article = ' '.join([s for s in article.split() if not any([c.isdigit() for c in s])])
         article = ''.join(ch for ch in article if ch not in string.punctuation)
         article = ' '.join([s for s in article.split() if not any([not c.isalpha() for c in s])])
         article = re.sub(' +', ' ', article)
+        article = article.lower()
+        for rgx_match in rgx_list:
+            article = article.replace(rgx_match, " ")
+        article = re.sub(' +', ' ', article)
         return article
 
-    new_text = [clean_article(article) for article in processed_text]
+    processed_text = [clean_article(article) for article in processed_text]
 
-    while '\n' in processed_text:
-        processed_text.remove('\n')
+    new_text = []
+    for article in processed_text:
+        if ('la el ' in article):
+            continue
+        if ('el la ' in article):
+            continue
 
-    while '\n' in processed_text:
-        processed_text.remove('')
+        if len(article.split()) > 200:
+            new_text.append(article)
+
+    while '\n' in new_text:
+        new_text.remove('\n')
+
+    while '\n' in new_text:
+        new_text.remove('')
 
     print(len(new_text))
+
+    ''' 
+    with open(txt_path + 'processed/' + ff + '_tmp.txt', 'w', encoding="utf-8") as new_txt_file:
+        for item in new_text:
+            new_txt_file.write("%s\n" % item)
+    '''
 
     with open(txt_path + 'clean/' + ff + '.pkl', 'wb') as fp:
         pickle.dump(new_text, fp)

@@ -16,7 +16,6 @@ import pickle
 # Parameters
 # ==================================================
 
-txt_path = os.getcwd()
 
 # Data loading params
 tf.flags.DEFINE_float("dev_sample_percentage", .05, "Percentage of the training data to use for validation")
@@ -68,24 +67,24 @@ else:
 # Data Preparation
 # ==================================================
 
-
 positive_data_file = os.getcwd() + '/data/clean/real.pkl'
 negative_data_file = os.getcwd() + '/data/clean/fake.pkl'
 
 # Load and clean data
 print("Loading data...")
 import re
+import string
 def clean(text):
     text = re.sub(r'\([^)]*\)', '', text)
     text = ' '.join([s for s in text.split() if not any([c.isdigit() for c in s])])
+    text = ''.join(ch for ch in text if ch not in string.punctuation)
     text = ' '.join([s for s in text.split() if not any([not c.isalpha() for c in s])])
+    text = re.sub(' +', ' ', text)
+    text = text.lower()
     return text
 
 # Build vocabulary
 x_origin, y = data_helpers.load_data_and_labels(positive_data_file, negative_data_file)
-
-x_origin = x_origin[:1000]
-y = y[:1000]
 
 x_text = [" ".join(clean(x).split(" ")[:1000]) for x in x_origin]
 
@@ -103,7 +102,7 @@ if FLAGS.experiment == 'all':
     x_shuffled = x[shuffle_indices]
     y_shuffled = y[shuffle_indices]
 
-    with open(txt_path + '/data/clean/shuffle.pkl', 'wb') as fp:
+    with open(os.getcwd() + '/data/clean/shuffle.pkl', 'wb') as fp:
         pickle.dump(shuffle_indices, fp)
 
     #4000 testing articles
@@ -111,10 +110,27 @@ if FLAGS.experiment == 'all':
     y_shuffled = y_shuffled[:-4000]
 
 elif FLAGS.experiment == 'Trump':
-    idx_trump = [idx for idx, article in enumerate(x_origin) if ('trump' in article) or ('Trump' in article) or ('TRUMP' in article)]
+    idx_trump = [idx for idx, article in enumerate(x_origin) if ('trump' not in article) and ('Trump' not in article) and ('TRUMP' not in article)]
+    x = x[idx_trump]
+    y = y[idx_trump]
 
-elif FLAGS.experiment == 'email':
-    idx_trump = [idx for idx, article in enumerate(x_origin) if ('email' in article) or ('Email' in article) or ('EMAIL' in article)]
+    # Randomly shuffle data
+    np.random.seed(10)
+    shuffle_indices = np.random.permutation(np.arange(len(y)))
+    x_shuffled = x[shuffle_indices]
+    y_shuffled = y[shuffle_indices]
+
+
+elif FLAGS.experiment == 'war':
+    idx_email= [idx for idx, article in enumerate(x_origin) if (' war ' not in article) and (' War ' not in article) and (' WAR ' not in article)]
+    x = x[idx_email]
+    y = y[idx_email]
+
+    # Randomly shuffle data
+    np.random.seed(10)
+    shuffle_indices = np.random.permutation(np.arange(len(y)))
+    x_shuffled = x[shuffle_indices]
+    y_shuffled = y[shuffle_indices]
 
 
 # Split train/test set
@@ -164,7 +180,7 @@ with tf.Graph().as_default():
 
         # Output directory for models and summaries
         timestamp = str(int(time.time()))
-        out_dir = os.path.abspath(os.path.join(os.path.curdir, "runs", timestamp))
+        out_dir = os.path.abspath(os.path.join(os.path.curdir, "runs", FLAGS.experiment))
         print("Writing to {}\n".format(out_dir))
 
         # Summaries for loss and accuracy

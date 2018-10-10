@@ -1,45 +1,20 @@
 Instructions indicated for PyEnchant (Python) with Tensorflow
 
-Files + Cleaning:
+Pre-requisites:
     1. Download and ungzip GoogleNews-vectors-negative300.bin.gz
         (I downloaded from: https://github.com/mmihaltz/word2vec-GoogleNews-vectors)
 
-    2. Run pattern removal script, 'pattern_removal.py'
-        * NOTE:
-            - change txt_path to locate your directory and the file you want to run
-                 (txt_path = '/Users/sofia/Documents/src/fakenews1/data/rb_test.txt')
+    2. Run pattern removal script, clean_data.py:
+        ```python clean_data.py```
 
 Train and Test Neural Network:
-    3. open train.py --> edit configuations --> enter parameters:
-        python
-        "/Users/sofia/Documents/src/fakenews1/train.py"
-        --filter_sizes="3"
-        --num_filters=128
-        --positive_data_file="/Users/sofia/Documents/src/fakenews1/data/erb_train.txt"
-        --negative_data_file="/Users/sofia/Documents/src/fakenews1/data/efb_train.txt"
-    * NOTE:
-     - Change path directory
-     - positive_data_file = real news dataset
-     - negative_data_file = fake news dataset
+    3. Train: train.py (experiment could be either Trump or all)
+        ```python train.py --experiment=Trump```
 
-     4. Once train.py is finished, you should find a 'run' directory has been created.
-        A checkpoint should also have been created within the 'run' directory (for example, a number should appear similiar to "1528206991")
+     Once train.py is finished, a directory in 'run' has been created, which cointains the network parameters.
 
-     5. run eval.py --> edit configuations --> enter parameters:
-        python
-        "/Users/sofia/Documents/src/fakenews1/eval.py"
-        --checkpoint_dir="/Users/sofia/Documents/src/fakenews1/runs/YOUR_NUMBER/checkpoints/"
-        --eval_train
-        --positive_data_file="/Users/sofia/Documents/src/fakenews1/data/erb_test.txt"
-        --negative_data_file="/Users/sofia/Documents/src/fakenews1/data/efb_test.txt"
-        --trigram_dir="all_final5/"
-
-     * NOTE:
-     - Change path directory
-     - Change YOUR_NUMBER to the number that was created during training (i.e. runs/1528206991/checkpoints/)
-     - CREATE a Python directory to store results (for example, mine was "all_final5")
-     - positive_data_file = real news dataset
-     - negative_data_file = fake news dataset
+     4. run eval.py
+        ```python eval.py --experiment=Trump```
 
 Seperate Words by Part of Speech:
     - run 'before_pos.py' (make sure to change directory, cur_dir = "trump_final1/" --> cur_dir = "YOUR_DIRECTORY/"
