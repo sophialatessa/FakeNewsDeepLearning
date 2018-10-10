@@ -1,10 +1,9 @@
 0. Pre-requisites: Tensorflow, Python3
 
-1. Download and ungzip GoogleNews-vectors-negative300.bin.gz from:
+1. Download and ungzip GoogleNews-vectors-negative300.bin.gz. Save the uncompressed GoogleNews-vectors-negative300.bin in the root directory of the repository (same directory as train.py). You can get the file here:
 
     https://github.com/mmihaltz/word2vec-GoogleNews-vectors
     
-    Save the uncompressed GoogleNews-vectors-negative300.bin in the root directory of the repository (same directory as train.py)
 
 2. Run pattern removal script, clean_data.py: 
 
