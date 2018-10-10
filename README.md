@@ -1,20 +1,25 @@
 Instructions indicated for PyEnchant (Python) with Tensorflow
 
 Pre-requisites:
-    1. Download and ungzip GoogleNews-vectors-negative300.bin.gz
-        (I downloaded from: https://github.com/mmihaltz/word2vec-GoogleNews-vectors)
 
-    2. Run pattern removal script, clean_data.py:
-        ```python clean_data.py```
+1. Download and ungzip GoogleNews-vectors-negative300.bin.gz from:
 
-Train and Test Neural Network:
-    3. Train: train.py (experiment could be either Trump or all)
-        ```python train.py --experiment=Trump```
+    https://github.com/mmihaltz/word2vec-GoogleNews-vectors
+
+2. Run pattern removal script, clean_data.py: 
+
+    `python clean_data.py`
+
+
+3. Train the Neural Network: train.py (experiment could be either Trump or all)
+ 
+    `python train.py --experiment=Trump`
 
      Once train.py is finished, a directory in 'run' has been created, which cointains the network parameters.
 
-     4. run eval.py
-        ```python eval.py --experiment=Trump```
+4. Test the Neural Network eval.py
+
+    ```python eval.py --experiment=Trump```
 
 Seperate Words by Part of Speech:
     - run 'before_pos.py' (make sure to change directory, cur_dir = "trump_final1/" --> cur_dir = "YOUR_DIRECTORY/"
