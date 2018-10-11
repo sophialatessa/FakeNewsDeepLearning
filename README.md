@@ -37,7 +37,7 @@ This is the code to reproduce the results in the paper:
     
 # Dataset
 
-The dataset consists on the Fake News Dataset by Kaggle collected by the BS detector (7,401 articles) + articles collected from "The Guardian" and "The New York Times" (8,999 articles).
+The dataset consists on a clean subset of articles from [Kaggle Fake News Dataset collected with the BS detector](https://www.kaggle.com/mrisdal/fake-news) (7,401 articles) + articles collected from "The Guardian" and "The New York Times" (8,999 articles).
 
 In the data directory it can be found:
 
