@@ -20,7 +20,7 @@ This is the code to reproduce the results in the paper:
 ```
     python train.py --experiment=Trump
 ```
-     Stop the training when the validation accuracy does not increase anymore. The validation accuracy is displayed every 100 training steps. A directory in 'run' that cointains the network parameters is created.
+Stop the training when the validation accuracy does not increase anymore. The validation accuracy is displayed every 100 training steps. A directory in 'run' that cointains the network parameters is created.
 
 4. Test the Neural Network eval.py
 ```
