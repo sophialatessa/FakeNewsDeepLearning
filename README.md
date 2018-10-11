@@ -48,4 +48,4 @@ In the data directory it can be found:
    
 - data/processed: the articles after removing words that are not in the English dictionary via [PyEnchant](https://github.com/rfk/pyenchant)
    
-- data/clean: the articles after cleaning advertisements and announcements, punctuations, etc. This is the data before going to the detector.
+- data/clean: the articles after cleaning advertisements and announcements, punctuation, etc. This is the data before going to the detector.
