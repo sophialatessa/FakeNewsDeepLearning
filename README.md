@@ -37,9 +37,10 @@ This is the code to reproduce the results in the paper:
     
 # Dataset
 
-The dataset consists on the Fake News Dataset by Kaggle collected by the BS detector () + articles collected from "The Guardian" and "The New York Times" ().
+The dataset consists on the Fake News Dataset by Kaggle collected by the BS detector (7,401 articles) + articles collected from "The Guardian" and "The New York Times" (8,999 articles).
 
 In the data directory it can be found:
 
    data/raw: the original articles
    data/processed: the articles after removing words that are not in the English dictionary via [PyEnchant](https://github.com/rfk/pyenchant)
+   data/clean: the articles after cleaning advertisements and announcements, punctuations, etc. This is the data before going to the detector.
