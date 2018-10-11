@@ -36,7 +36,10 @@ python get_patterns.py --experiment=Trump
 ```
 python parts_of_speech.py --experiment=Trump
 ```
-    
+
+7. We obtained the following patterns:
+
+[Frequent patterns useful in fake and real news](PatternsTrump.md)
     
 # Dataset
 
