@@ -12,32 +12,35 @@ This is the code to reproduce the results in the paper:
     
 
 2. Run pattern removal script, clean_data.py: 
-
-    `python clean_data.py`
-
+ ```
+    python clean_data.py
+ ```
 
 3. Train the Neural Network: train.py (experiment could be either Trump or all)
- 
-    `python train.py --experiment=Trump`
-
+```
+    python train.py --experiment=Trump
+```
      Stop the training when the validation accuracy does not increase anymore. The validation accuracy is displayed every 100 training steps. A directory in 'run' that cointains the network parameters is created.
 
 4. Test the Neural Network eval.py
-
-    ```python eval.py --experiment=Trump```
+```
+    python eval.py --experiment=Trump
+```
 
 5. Get the most relevant patterns for each article:
-
-     ```python get_patterns.py --experiment=Trump```
+```
+python get_patterns.py --experiment=Trump
+```
      
 6. Display the most relevant patters accross all the dataset by parts of speech:
-    
-    ```python parts_of_speech.py --experiment=Trump```
+```
+python parts_of_speech.py --experiment=Trump
+```
     
     
 # Dataset
 
-The dataset consists on a clean subset of articles from [Kaggle Fake News Dataset collected with the BS detector](https://www.kaggle.com/mrisdal/fake-news) (7,401 articles) + articles collected from "The Guardian" and "The New York Times" (8,999 articles).
+The dataset consists on the Fake News Dataset by Kaggle collected by the BS detector (7,401 articles) + articles collected from "The Guardian" and "The New York Times" (8,999 articles).
 
 In the data directory it can be found:
 
