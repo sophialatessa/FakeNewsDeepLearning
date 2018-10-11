@@ -1,3 +1,7 @@
+This is the code to reproduce the results in the paper:
+
+"Opening the Black-box of Deep Learning Fake News Detectors"
+
 # Running the code from scratch
 
 0. Pre-requisites: Python3 + packages: nltk, numpy, sklearn, Tensorflow (tested in version 1.12.0rc0)
@@ -33,13 +37,9 @@
     
 # Dataset
 
-* Data's directory holds all fake bodies and real bodies text files. It also holds 'news-data`.*
-  Within 'news-data', holds `trump` text files and `email` text files:
-        - no_trump_fb.txt and no_trump_rb.txt are the training files
-        - trump_fb.txt and trump_rb.txt are the testing files
-        - no_email_fb.txt and no_email_rb.txt are the training files
-        - email_fb.txt and email_rb.txt are the testing files
+The dataset consists on the Fake News Dataset by Kaggle collected by the BS detector () + articles collected from "The Guardian" and "The New York Times" ().
 
-  Also, within 'news-data,' holds fake and real text bodies:
-        - fb_train and rb_train are the training files
-        - fb_test and rb_test are the training files
+In the data directory it can be found:
+
+   data/raw: the original articles
+   data/processed: the articles after removing words that are not in the English dictionary via [PyEnchant](https://github.com/rfk/pyenchant)
