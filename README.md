@@ -13,18 +13,18 @@ This is the code to reproduce the results in the paper:
 
 2. Run pattern removal script, clean_data.py: 
  ```
-    python clean_data.py
+python clean_data.py
  ```
 
 3. Train the Neural Network: train.py (experiment could be either Trump or all)
 ```
-    python train.py --experiment=Trump
+python train.py --experiment=Trump
 ```
 Stop the training when the validation accuracy does not increase anymore. The validation accuracy is displayed every 100 training steps. A directory in 'run' that cointains the network parameters is created.
 
 4. Test the Neural Network eval.py
 ```
-    python eval.py --experiment=Trump
+python eval.py --experiment=Trump
 ```
 
 5. Get the most relevant patterns for each article:
@@ -44,8 +44,8 @@ The dataset consists on the Fake News Dataset by Kaggle collected by the BS dete
 
 In the data directory it can be found:
 
-   data/raw: the original articles
+- data/raw: the original articles
    
-   data/processed: the articles after removing words that are not in the English dictionary via [PyEnchant](https://github.com/rfk/pyenchant)
+- data/processed: the articles after removing words that are not in the English dictionary via [PyEnchant](https://github.com/rfk/pyenchant)
    
-   data/clean: the articles after cleaning advertisements and announcements, punctuations, etc. This is the data before going to the detector.
+- data/clean: the articles after cleaning advertisements and announcements, punctuations, etc. This is the data before going to the detector.
