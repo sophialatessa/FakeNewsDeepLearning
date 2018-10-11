@@ -40,7 +40,7 @@ python parts_of_speech.py --experiment=Trump
     
 # Dataset
 
-The dataset consists on the Fake News Dataset by Kaggle collected by the BS detector (7,401 articles) + articles collected from "The Guardian" and "The New York Times" (8,999 articles).
+The dataset consists on the [Fake News Dataset by Kaggle collected by the BS detector](https://www.kaggle.com/mrisdal/fake-news) (7,401 articles) + articles collected from "The Guardian" and "The New York Times" (8,999 articles).
 
 In the data directory it can be found:
 
