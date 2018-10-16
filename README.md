@@ -1,6 +1,6 @@
 This is the code to reproduce the results in the paper:
 
-"Opening the Black-box of Deep Learning Fake News Detectors"
+"The Language of Fake News: Opening the Black-Box of Deep Learning Based Detectors", O'Brien et al. (2018)
 
 # Running the code from scratch
 
